@@ -1,0 +1,82 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local MainWindow = Library.CreateLib("Ella Premium", "LightTheme")
+
+local Tab = MainWindow:NewTab("Basic Stuff")
+local MainSection = Tab:NewSection("Basic Stuff")
+	MainSection:NewLabel("Some pretty basic stuff.")
+	
+	MainSection:NewSlider("Walkspeed", "Appies Walkspeed", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+	MainSection:NewSlider("Jump Power", "Applies Jump Power", 550, 50, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+		
+MainSection:NewButton("Press [ To Reset", "Resets Your Character", function(txt)
+	local Player = game.Players.LocalPlayer
+local Mouse = Player:GetMouse()
+local Char = Player.Character
+local h = Char:WaitForChild("Humanoid")
+Mouse.KeyUp:Connect(function(key)
+	if key == "[" then
+		Char:BreakJoints()
+	end
+end)
+end)
+	
+
+local MainSection = Tab:NewSection("Scripts")
+	
+
+	MainSection:NewButton("Inf Yeild", "FE Admin Commands", function(txt)
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+	MainSection:NewButton("Owl Hub", "ESP And Aimbot", function(txt)
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))();
+end)
+
+	MainSection:NewButton("Inf Jump", "Press the space bar mid are and go up without touching the ground.", function(txt)
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/g11an15/HitBoxExtender/main/Inf%20Jump%20REALY"))();
+end)
+	
+	MainSection:NewButton("Fly (Click ...)", "Not Bypass, Possible CS", function(txt)
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/g11an15/JayLoves6YearOlds/main/Fly"))();
+end)
+	
+
+	MainSection:NewButton("Click TP Tool", "High Chance Of Being Kicked.", function(txt)
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/g11an15/HitBoxExtender/main/YESS"))();
+end)
+	
+	
+	local ATab = MainWindow:NewTab("Aimbot")
+	local ASection = ATab:NewSection("Aimbot and Other")
+	
+	ASection:NewButton("Aimbot (FOV Enabled)", "Auto Aim For You.", function(txt)
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/g11an15/Aimbot/main/Enabled"))();
+end)
+
+ASection:NewButton("Aimbot (FOV Disabled)", "Auto Aim For You.", function(txt)
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/g11an15/Aimbot/main/Enabled"))();
+end)
+	
+	ASection:NewButton("ESP", "Auto Aim For You.", function(txt)
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/g11an15/Aimbot/main/ESP"))();
+end)
+
+local CredTab = MainWindow:NewTab("Credits")
+	local CredSection = CredTab:NewSection("Credits")
+	
+	CredSection:NewLabel("DO NOT LEAK THIS")
+	
+	CredSection:NewLabel("Fully Scripted By Ella.#1306")
+	
+	
+	
+	-- KEY BINDS
+	local KeyTab = MainWindow:NewTab("Keybinds")
+	local KeySection = KeyTab:NewSection("Binds")
+	KeySection:NewKeybind("UI Toggle", "Toggles The UI", Enum.KeyCode.RightControl, function()
+	Library:ToggleUI()
+end)
